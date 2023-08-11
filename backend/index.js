@@ -13,6 +13,9 @@ const logger = (req, res, next) => {
 app.use(logger);
 const userRoutes = require("./routes/userRoutes");
 const blogRoutes = require("./routes/blogRoutes");
+app.get("/", (req, res) => {
+  res.send("Express on Vercel");
+});
 app.use("/api/users", userRoutes);
 app.use("/api/blogs", blogRoutes);
 mongoose
