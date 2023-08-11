@@ -30,3 +30,4 @@ mongoose
     console.log(err);
     throw new Error(err.message);
   });
+module.exports = app;
