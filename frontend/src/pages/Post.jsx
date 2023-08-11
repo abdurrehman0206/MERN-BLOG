@@ -57,13 +57,9 @@ function Post() {
       try {
         const formData = new FormData();
         formData.append("file", image);
-        console.log("🚀 ~ file: Post.jsx:62 ~ postBlog ~ image:", image);
+
         formData.append("upload_preset", "ml_default");
 
-        console.log(
-          "🚀 ~ file: Post.jsx:66 ~ postBlog ~ process.env.REACT_APP_CLURL:",
-          process.env.REACT_APP_CLURL
-        );
         const imageUp = await fetch(`${process.env.REACT_APP_CLURL}`, {
           method: "POST",
           body: formData,
@@ -76,14 +72,17 @@ function Post() {
           };
         }
 
-        const response = await fetch("/api/blogs", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${user.token}`,
-          },
-          body: JSON.stringify(blog),
-        });
+        const response = await fetch(
+          `${process.env.REACT_APP_BASE_URL}/api/blogs`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${user.token}`,
+            },
+            body: JSON.stringify(blog),
+          }
+        );
         const json = await response.json();
         if (json.success) {
           // dispatch({

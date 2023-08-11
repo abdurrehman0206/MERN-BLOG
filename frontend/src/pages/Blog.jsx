@@ -23,12 +23,15 @@ function Blog() {
 
     const getBlogs = async () => {
       try {
-        const response = await fetch("/api/blogs/", {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${user.token}`,
-          },
-        });
+        const response = await fetch(
+          `${process.env.REACT_APP_BASE_URL}/api/blogs/`,
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${user.token}`,
+            },
+          }
+        );
         const json = await response.json();
         if (response.ok) {
           dispatch({ type: "GET_BLOGS", payload: json.data });

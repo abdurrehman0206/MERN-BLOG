@@ -30,28 +30,34 @@ function SingleBlog() {
     const getBlog = async () => {
       setLoading(true);
       try {
-        const response = await fetch(`/api/blogs/${blogId}`, {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${user.token}`,
-          },
-        });
+        const response = await fetch(
+          `${process.env.REACT_APP_BASE_URL}/api/blogs/${blogId}`,
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${user.token}`,
+            },
+          }
+        );
         const json = await response.json();
         if (json.success && response.ok) {
           if (json.data.views.find((view) => view === user.id)) {
             setBlog(json.data);
           } else {
             try {
-              const response = await fetch(`/api/blogs/${blogId}`, {
-                method: "PUT",
-                headers: {
-                  "Content-Type": "application/json",
-                  Authorization: `Bearer ${user.token}`,
-                },
-                body: JSON.stringify({
-                  views: [...json.data.views, user.id],
-                }),
-              });
+              const response = await fetch(
+                `${process.env.REACT_APP_BASE_URL}/api/blogs/${blogId}`,
+                {
+                  method: "PUT",
+                  headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${user.token}`,
+                  },
+                  body: JSON.stringify({
+                    views: [...json.data.views, user.id],
+                  }),
+                }
+              );
               const jsonN = await response.json();
               if (jsonN.success && response.ok) {
                 setBlog(jsonN.data);
@@ -80,13 +86,16 @@ function SingleBlog() {
 
   const postLike = async () => {
     try {
-      const response = await fetch(`/api/blogs/${blogId}/like`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${user.token}`,
-        },
-      });
+      const response = await fetch(
+        `${process.env.REACT_APP_BASE_URL}/api/blogs/${blogId}/like`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${user.token}`,
+          },
+        }
+      );
       const json = await response.json();
       if (json.success && response.ok) {
         setBlog(json.data);
@@ -115,16 +124,19 @@ function SingleBlog() {
       return;
     }
     try {
-      const response = await fetch(`/api/blogs/${blogId}/comment`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${user.token}`,
-        },
-        body: JSON.stringify({
-          comment: comment,
-        }),
-      });
+      const response = await fetch(
+        `${process.env.REACT_APP_BASE_URL}/api/blogs/${blogId}/comment`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${user.token}`,
+          },
+          body: JSON.stringify({
+            comment: comment,
+          }),
+        }
+      );
       const json = await response.json();
       if (json.success && response.ok) {
         setBlog(json.data);

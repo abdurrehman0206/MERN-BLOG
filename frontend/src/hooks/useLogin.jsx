@@ -9,13 +9,12 @@ export const useLogin = () => {
     setLoading(true);
     try {
       const response = await fetch(
-        "/api/users/login",
+        `${process.env.REACT_APP_BASE_URL}/api/users/login`,
 
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            
           },
           body: JSON.stringify({
             email,

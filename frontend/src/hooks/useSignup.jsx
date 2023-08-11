@@ -9,7 +9,7 @@ export const useSignup = () => {
     setLoading(true);
     try {
       const response = await fetch(
-        "/api/users/signup",
+        `${process.env.REACT_APP_BASE_URL}/api/users/signup`,
 
         {
           method: "POST",

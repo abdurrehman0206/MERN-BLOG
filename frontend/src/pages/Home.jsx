@@ -15,7 +15,7 @@ function Home() {
     setLoading(true);
     const getBlogs = async () => {
       try {
-        const response = await fetch("/api/blogs/", {
+        const response = await fetch(`${process.env.REACT_APP_BASE_URL}/api/blogs/`, {
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${user.token}`,

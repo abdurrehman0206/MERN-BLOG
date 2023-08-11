@@ -23,12 +23,15 @@ export const AuthContextProvider = ({ children }) => {
     const checkUser = async () => {
       const user = JSON.parse(localStorage.getItem("user"));
       if (user) {
-        const response = await fetch("/api/users/verify", {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${user.token}`,
-          },
-        });
+        const response = await fetch(
+          `${process.env.REACT_APP_BASE_URL}/api/users/verify`,
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${user.token}`,
+            },
+          }
+        );
         const json = await response.json();
         if (json.success) {
           localStorage.setItem("user", JSON.stringify(json.user));
