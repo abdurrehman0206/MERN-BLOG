@@ -3,7 +3,14 @@ require("dotenv").config();
 const mongoose = require("mongoose");
 const cors = require("cors");
 const app = express();
-app.use(cors());
+const corsOpts = {
+  origin: "https://writestack.vercel.app/",
+  credentials: true,
+  methods: ["GET", "POST", "HEAD", "PUT", "PATCH", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  exposedHeaders: ["Content-Type"],
+};
+app.use(cors(corsOpts));
 app.use(express.json());
 const logger = (req, res, next) => {
   console.log(req.method, req.url, res.statusCode);
