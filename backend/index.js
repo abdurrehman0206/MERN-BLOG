@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const app = express();
 const corsOpts = {
-  origin: ["https://writestack.vercel.app/", "http://localhost:3000"],
+  origin: ["https://writestack.vercel.app", "http://localhost:3000"],
   credentials: true,
   methods: ["GET", "POST", "HEAD", "PUT", "PATCH", "DELETE"],
   allowedHeaders: ["Content-Type", "Authorization"],
