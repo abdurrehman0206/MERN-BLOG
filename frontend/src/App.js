@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Blog from "./pages/Blog";
 import Post from "./pages/Post";
 import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 import { useAuthContext } from "./hooks/useAuthContext";
 import { useEffect } from "react";
 function App() {
@@ -37,7 +38,7 @@ function App() {
           />
           <Route
             path="/signup"
-            element={!user ? <Login /> : <Navigate to="/" />}
+            element={!user ? <Signup /> : <Navigate to="/" />}
           />
         </Routes>
       </BrowserRouter>

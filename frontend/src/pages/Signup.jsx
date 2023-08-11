@@ -46,9 +46,9 @@ function Signup() {
         />
 
         <button onClick={(e) => handleSignup(e)}>SignUp</button>
-        <span>
+        <small>
           Already have and account ? <NavLink to="/login">Login</NavLink>
-        </span>
+        </small>
         {error && <span className="error">{error}</span>}
       </form>
     </div>
