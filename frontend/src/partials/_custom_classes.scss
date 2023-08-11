@@ -1,0 +1,16 @@
+.test {
+  border: $border-test;
+}
+.error {
+  padding: $sm;
+  background-color: $error-bg;
+  border: $error-border;
+  border-radius: $sm;
+}
+
+.success {
+  padding: $sm;
+  background-color: $success-bg;
+  border: $success-border;
+  border-radius: $sm;
+}

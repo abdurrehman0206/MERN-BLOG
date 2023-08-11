@@ -1,0 +1,229 @@
+@import "./partials/import";
+
+.home-container {
+  color: #7f7c82;
+
+  @include flex-layout(row, center, flex-start);
+  // margin-left: calc(250px);
+  // min-width: calc(100vw - 250px);
+  // .left-container {
+  //   height: 100%;
+  // }
+  // .right-container {
+  //   // min-width: calc(300px + 2 * $sm);
+  // }
+  //changing felx layout to column for mobile view
+  // @media (max-width: 930px) {
+  //   @include flex-layout(column, center, flex-start);
+  //   margin-left: 0;
+  //   min-width: 100vw;
+  //   .left-container {
+  //     // border: 1px solid red;
+  //   }
+  //   .right-container {
+  //     // min-width: calc(300px + 2 * $sm);
+  //   }
+  // }
+
+  @media screen and (max-width: 930px) {
+    @include flex-layout(column, center, flex-start);
+  }
+  @include device(mobile) {
+    @include flex-layout(column, center, flex-start);
+  }
+}
+
+.blog-page-container {
+  // height: 100vh;
+  width: 100%;
+
+  @include flex-layout(column, center, center);
+  .blog-page-header {
+    position: relative;
+    @include flex-layout(column, center, center);
+    width: 100%;
+    padding: $sm;
+    height: 70px;
+    input {
+      border: 1px solid $tertiary;
+
+      width: 50%;
+      padding: $sm $lg;
+      border-radius: 20px;
+      @include device(mobile) {
+        width: 100%;
+        // margin: 1rem;
+      }
+    }
+  }
+  .blog-page-content {
+    // margin: auto;
+    width: 81%;
+    @include flex-layout(row, flex-start, flex-start);
+
+    max-height: calc(100vh - 70px);
+    .left {
+      max-height: calc(100vh - 70px);
+      // height: 100%;
+      overflow: scroll;
+      margin: auto;
+      padding: $lg;
+      @include flex-layout(row, center, flex-start);
+      flex-wrap: wrap;
+      max-width: 1000px;
+      gap: $sm;
+
+      @media screen and (max-width: 930px) {
+        // @include flex-layout(column, center, center);
+        min-width: 0;
+        height: 100%;
+        overflow: scroll;
+        padding: $sm;
+      }
+    }
+
+    @media screen and (max-width: 930px) {
+      @include flex-layout(column-reverse, center, center);
+      width: 100%;
+    }
+    // @include device(mobile) {
+    //   width: 100%;
+    //   // width: max-content;
+    //   @include flex-layout(column-reverse, center, center);
+    // }
+  }
+  @media screen and (max-width: 930px) {
+    // width: max-content;
+    width: 100%;
+    justify-content: flex-start;
+    flex-direction: column;
+  }
+}
+
+.post-blog-container {
+  height: 100vh;
+  form {
+    .form-group {
+      width: 100%;
+      padding: $sm;
+      @include flex-layout(row, flex-start, inline);
+      label,
+      input,
+      textarea,
+      select {
+        padding: $sm;
+        border-radius: 5px;
+      }
+      input,
+      textarea,
+      select {
+        flex-basis: 100%;
+        border: 1px solid $tertiary;
+        &:focus {
+          box-shadow: $box-shadow;
+        }
+      }
+      label {
+        width: 100px;
+        padding: $sm;
+      }
+      h2 {
+        text-align: center;
+        width: 100%;
+        padding: $sm;
+      }
+      .tag {
+        font-size: $sm * (1.25);
+        background-color: $quternary;
+        border-radius: 5px;
+        padding: $xs $sm;
+        font-weight: 500;
+        @include flex-layout(row, space-between, center);
+        max-width: fit-content;
+        gap: $xs;
+      }
+      .success {
+        width: 100%;
+        text-align: center;
+      }
+      @include device(mobile) {
+        label {
+          display: none;
+        }
+      }
+    }
+    button {
+      margin-left: auto;
+      margin-right: auto;
+      padding: $sm $lg;
+    }
+  }
+  width: 100%;
+}
+.login-wrapper {
+  // height: 100vh;
+  width: 100%;
+  margin-top: 2rem;
+  @include flex-layout(column, center, center);
+  form {
+    min-width: 400px;
+    padding: $lg;
+    @include flex-layout(column, center, center);
+    gap: $md;
+    .header {
+      @include flex-layout(column, center, center);
+      margin-bottom: $lg;
+      gap: $sm;
+    }
+    input {
+      font-size: 16px;
+      color: $base;
+      position: relative;
+      background-color: $secondary;
+      width: 100%;
+      padding: $sm;
+      border-radius: 5px;
+      border: 1px solid $secondary;
+      &:focus {
+        box-shadow: $box-shadow;
+        border: 1px solid $primary;
+        &::placeholder {
+          color: transparent;
+        }
+      }
+      &::placeholder {
+        color: #ffffff69;
+      }
+    }
+    button {
+      margin-top: $lg;
+      font-size: 16px;
+      padding: $sm $lg;
+      background-color: $primary;
+      color: $base;
+      border-radius: 5px;
+      font-weight: 500;
+      width: 100%;
+      &:hover {
+        box-shadow: $box-shadow;
+      }
+    }
+    @include device(mobile) {
+      width: 100%;
+      min-width: 0;
+    }
+    small {
+      a {
+        color: $primary;
+        &:hover {
+          text-decoration: underline;
+          cursor: pointer;
+        }
+      }
+    }
+    span {
+      width: 100%;
+      text-align: center;
+    }
+  }
+}

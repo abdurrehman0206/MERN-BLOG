@@ -1,0 +1,106 @@
+@import "../../partials/import";
+
+.blog-wrapper {
+  max-width: 300px;
+  min-width: 300px;
+
+  min-height: max-content;
+  max-height: max-content;
+
+  border: $border $quternary;
+  padding: $sm;
+  border-radius: 5px;
+
+  .header {
+    position: relative;
+    width: 100%;
+    @include flex-layout(column);
+    .top {
+      width: 100%;
+      .category {
+        background-color: $base;
+
+        position: absolute;
+        padding: $sm;
+        top: $sm;
+        left: $sm;
+        border-radius: 5px;
+      }
+    }
+    .bottom {
+      width: 100%;
+      font-size: 0.8rem;
+      @include flex-layout(row, space-between, center);
+    }
+  }
+  &:hover {
+    box-shadow: $box-shadow;
+  }
+}
+
+.blog-wrapper {
+  img {
+    width: 100%;
+    height: calc(230px - 2 * $sm);
+
+    object-fit: cover;
+    border-radius: 5px;
+  }
+  .title {
+    margin: $sm 0;
+    font-weight: 500;
+  }
+
+  .author {
+    @include flex-layout(row, space-between, center);
+    gap: $xs;
+  }
+
+  .tags {
+    @include flex-layout;
+    gap: $sm;
+    margin: $sm 0;
+    overflow-x: scroll;
+    // overflow-x: hidden;
+  }
+  .tag {
+    font-size: $sm * (1.25);
+    background-color: $quternary;
+    border-radius: 5px;
+    padding: $xs $sm;
+    font-weight: 500;
+    @include flex-layout(row, space-between, center);
+    max-width: fit-content;
+    gap: $xs;
+  }
+
+  .date {
+    @include flex-layout(row, flex-start, center);
+    gap: $xs;
+  }
+
+  .views {
+    @include flex-layout(row, flex-start, center);
+    gap: $xs;
+  }
+  .content {
+    margin: $sm 0;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    line-height: 1.5em;
+    min-height: 3em;
+  }
+  .read-more {
+    display: inline-block;
+    padding: $xs;
+    text-decoration: underline;
+    color: $text;
+
+    &:hover {
+      color: $primary;
+      cursor: pointer;
+    }
+  }
+}

@@ -1,0 +1,31 @@
+@import "../../partials/import";
+
+.categories-container {
+  padding: $sm;
+  margin: $sm;
+  margin-top: 2 * $sm;
+  min-width: calc(300px + 2 * $sm);
+  .categories-list {
+    @include flex-layout(column, flex-start, flex-start);
+    flex-wrap: wrap;
+
+    padding: $sm;
+    // height: 100vh;
+  }
+  .category {
+    width: 100%;
+    @include flex-layout(row, space-between, center);
+    flex-wrap: wrap;
+    border-bottom: 2px solid $quternary;
+    padding: $sm;
+    // height: 100vh;
+    span {
+      font-size: $md;
+      font-weight: 400;
+      &:hover {
+        cursor: pointer;
+        color: $primary;
+      }
+    }
+  }
+}

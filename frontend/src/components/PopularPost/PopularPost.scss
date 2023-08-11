@@ -1,0 +1,64 @@
+@import "../../partials/import";
+
+.popularpost-container {
+  margin: $sm;
+  margin-top: $sm * 2;
+  padding: $sm;
+  position: relative;
+}
+.popularpost-title {
+  margin-bottom: $sm;
+}
+.popularpost {
+  min-width: 300px;
+  max-width: 300px;
+  // height: 300px;
+
+  position: relative;
+  @include flex-layout(column, flex-start, flex-start);
+  border-radius: 5px;
+  overflow: hidden;
+  img {
+    border-radius: 5px;
+    width: 300px;
+    height: calc(230px);
+
+    object-fit: cover;
+  }
+  &:hover {
+    cursor: pointer;
+    box-shadow: $box-shadow;
+  }
+}
+
+.popularpost-info {
+  // position: absolute;
+  bottom: $md;
+  left: $md;
+  right: $md;
+  padding: $sm;
+
+  h4 {
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    margin-bottom: $xs;
+  }
+  p {
+    font-weight: 200px;
+    font-size: 0.75rem;
+  }
+}
+.popularpost-info-back {
+  // border-top-left-radius: 5px;
+  // border-top-right-radius: 5px;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4px);
+  color: $base;
+  // box-shadow: $box-shadow;
+}

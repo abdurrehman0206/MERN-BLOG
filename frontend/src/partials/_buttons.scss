@@ -1,0 +1,34 @@
+.btn {
+  padding: $sm;
+}
+
+@mixin btn() {
+  padding: $sm;
+  border-radius: $sm;
+  font-size: $md;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    color: $base;
+    background-color: $primary;
+    box-shadow: $box-shadow;
+  }
+}
+.cta-btn {
+  @include btn();
+  padding: $sm;
+  background-color: $secondary;
+  color: $base;
+}
+.outline-btn {
+  @include btn();
+  padding: $sm;
+  background-color: $base;
+  color: $primary;
+  border: $border $primary;
+
+  &:hover {
+    border: 1px solid $primary;
+  }
+}

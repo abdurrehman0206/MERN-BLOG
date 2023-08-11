@@ -1,0 +1,31 @@
+@import "../../partials/import";
+
+.blogs-container {
+  @include flex-layout(row, center, flex-start);
+
+  flex-wrap: wrap;
+  gap: $sm;
+  margin: 0 $sm;
+  padding: $lg;
+  max-width: 1000px;
+  // min-width: 1000px;
+  height: 100%;
+  // overflow: scroll;
+
+  // min-width: 400px;
+  @media screen and (max-width: 930px) {
+    padding: $sm;
+    // width: max-content;
+    justify-content: flex-start;
+    flex-direction: column;
+  }
+  .feed-title {
+    display: block;
+    width: 100%;
+    padding: 0 $lg;
+    @media screen and (max-width: 930px) {
+      width: auto;
+      padding: 0 0;
+    }
+  }
+}
