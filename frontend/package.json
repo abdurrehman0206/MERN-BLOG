@@ -1,5 +1,5 @@
 {
-  "proxy": "https://mern-blog-delta-tawny.vercel.app/",
+  "proxy": "https://mern-blog-backend-sigma.vercel.app/",
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
