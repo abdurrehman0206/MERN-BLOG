@@ -3,6 +3,7 @@ require("dotenv").config();
 const mongoose = require("mongoose");
 const cors = require("cors");
 const app = express();
+const serverless = require("serverless-http");
 const corsOpts = {
   origin: ["https://writestack.vercel.app", "http://localhost:3000"],
   credentials: true,
@@ -45,4 +46,5 @@ mongoose
     console.log(err);
     throw new Error(err.message);
   });
-export default app;
+module.exports = app;
+module.exports.handler = serverless(app);
