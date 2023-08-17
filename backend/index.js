@@ -11,14 +11,7 @@ const corsOpts = {
   allowedHeaders: ["Content-Type", "Authorization"],
   exposedHeaders: ["Content-Type", "Authorization"],
 };
-app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  next();
-});
+
 app.use(cors(corsOpts));
 app.use(express.json());
 const logger = (req, res, next) => {
@@ -38,13 +31,14 @@ mongoose
   .connect(process.env.MONGO_URI)
   .then(() => {
     console.log("Connected to MongoDB");
-    // app.listen(process.env.PORT, () => {
-    //   console.log(`Server is running at ${process.env.PORT}`);
-    // });
+    app.listen(process.env.PORT, () => {
+      console.log(`Server is running at ${process.env.PORT}`);
+    });
   })
   .catch((err) => {
     console.log(err);
     throw new Error(err.message);
   });
+
 module.exports = app;
 module.exports.handler = serverless(app);
