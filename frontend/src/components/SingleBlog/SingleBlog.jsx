@@ -89,7 +89,7 @@ function SingleBlog() {
       const response = await fetch(
         `${process.env.REACT_APP_BASE_URL}/api/blogs/${blogId}/like`,
         {
-          method: "PUT",
+          method: "PATCH",
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${user.token}`,
@@ -127,7 +127,7 @@ function SingleBlog() {
       const response = await fetch(
         `${process.env.REACT_APP_BASE_URL}/api/blogs/${blogId}/comment`,
         {
-          method: "PUT",
+          method: "PATCH",
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${user.token}`,
